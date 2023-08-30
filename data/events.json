@@ -1,0 +1,18 @@
+[
+    {
+        "name": "konserDangdut",
+        "location": "monas",
+        "eventDate": "2023-09-30",
+        "price": 250000,
+        "capacity": 2000,
+        "CategoryId": 1
+    },
+    {
+        "name": "standUpComedy",
+        "location": "istoraSenayan",
+        "eventDate": "2023-09-15",
+        "price": 300000,
+        "capacity": 1000,
+        "CategoryId": 2
+    }   
+]

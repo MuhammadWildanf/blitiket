@@ -1,0 +1,26 @@
+[
+    {
+        "userName": "user1",
+        "email": "user1@gmail.com",
+        "password": "@user1_123",
+        "role": "user"
+    },
+    {
+        "userName": "user2",
+        "email": "user2@gmail.com",
+        "password": "@user2_123",
+        "role": "user"
+    },
+    {
+        "userName": "eventOrganizer1",
+        "email": "eventorganizer1@gmail.com",
+        "password": "@EO1_123",
+        "role": "eventOrganizer"
+    },
+    {
+        "userName": "eventOrganizer2",
+        "email": "eventorganizer1@gmail.com",
+        "password": "@EO2_123",
+        "role": "eventOrganizer"
+    }
+]
