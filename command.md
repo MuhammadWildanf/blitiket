@@ -6,6 +6,8 @@ npx sequelize-cli model:create --name Category --attributes name:string
 npx sequelize-cli migration:generate --name add-FK-column-to-Event-table
 npx sequelize-cli model:create --name Booking --attributes UserId:integer,EventId:integer
 
+npx sequelize-cli db:create
+
 npx sequelize db:migrate
 npx sequelize db:migrate:undo:all
 
