@@ -13,13 +13,39 @@ class Controller {
 
     static readAllEvent(req, res) {
         // console.log(req.session.role, '<<<');
+        console.log(req.query);
         const role = req.session.role
+        let { name, category } = req.query
 
-        Event.findAll({ include: Category })
+        let option = {
+            include: { model: Category },
+            order: [['eventDate', 'DESC']],
+            where: {}
+        }
+
+        // if (name && category) {
+        //     option.where = {
+        //         name: {
+        //             [Op.iLike]: `%${name}%`,
+        //         },
+        //     };
+        // }
+        if (name) {
+            option.where = {
+                name: {
+                    [Op.iLike]: `%${name}%`,
+                },
+            };
+        }
+        // if (category) {
+        //     option.where.Category.name = category 
+        // }
+
+        Event.findAll(option)
             .then((event) => {
                 if (role === 'eventOrganizer') {
                     // res.send(event)
-                    // console.log(event);
+                    console.log(event);
                     res.render('event-admin', { event })
                 } else {
                     res.render('event', { event })
@@ -31,11 +57,50 @@ class Controller {
     }
 
     static addEvent(req, res) {
-        res.send('addevent')
+        const { id } = req.params
+        let {errors} = req.query        
+
+        Category.findAll()
+            .then(category => {
+                // res.send({event, category})
+                res.render('event-add', { category, errors })
+            })
+            .catch((err) => {
+                res.send(err.message)
+            })
     }
 
     static postAddEvent(req, res) {
-        res.send('postevent')
+        // res.send('postevent')
+        // res.send('postEditEvent')
+        let { id } = req.params
+        let foundId = +id
+        let { name, location, eventDate, price, capacity, CategoryId } = req.body
+
+        price = +price
+        capacity = +capacity
+        CategoryId = +CategoryId
+
+        Event.create({ name, location, eventDate, price, capacity, CategoryId },
+            {
+                where: { id: foundId }
+            })
+            .then(result => {
+                // res.send(result)
+                res.redirect('/event')
+            })
+            .catch(err => {
+                if (err.name === "SequelizeValidationError") {
+                    err = err.errors.map(error => {
+                        return error.message
+                    })
+                    // res.send(err)
+                    res.redirect(`/event/add?errors=` + err.join(';'));
+                } 
+                else {
+                    res.send(err)
+                }
+            })
     }
 
     static readEventById(req, res) {
@@ -95,7 +160,7 @@ class Controller {
 
         })
             .then(booking => {
-                res.render('pesanan', {booking})
+                res.render('pesanan', { booking })
             })
             .catch(err => {
                 res.send(err)
