@@ -4,27 +4,27 @@ const isLogin = function (req,res,next){
       const error = 'Please Login first'
       res.redirect(`/login?error=${error}`)
   }else{
-      next()
+    next()
   }
 }
 
 const isAdmin = function (req,res,next){ 
   console.log(req.session);
-  if(req.session.userId && req.session.role !== 'eventOrganizer'){
+  if(req.session.userId && req.session.role === 'eventOrganizer'){
+    next()
+  }else{
       const error = 'You Have No access'
       res.redirect(`/login?error=${error}`)
-  }else{
-      next()
   }
 }
 
 const isUser = function (req,res,next){ 
   console.log(req.session);
-  if(req.session.userId && req.session.role !== 'user'){
+  if(req.session.userId && req.session.role === 'user'){
+    next()
+  }else{
       const error = 'You Have No access'
       res.redirect(`/login?error=${error}`)
-  }else{
-      next()
   }
 }
 

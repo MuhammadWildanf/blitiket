@@ -7,6 +7,7 @@ class UserController {
     static registerForm(req, res) {
         res.render('registerForm')
     }
+
     static register(req, res) {
         const { userName, email, password, role } = req.body
         User.create({ userName, email, password, role })
@@ -33,7 +34,7 @@ class UserController {
                         req.session.userId = user.id
                         req.session.email = user.email
                         req.session.role = user.role
-                        return res.redirect('/ticket')
+                        return res.redirect('/')
                     } else {
                         const error = "invalid username/password"
                         return res.redirect(`/login?error=${error}`)

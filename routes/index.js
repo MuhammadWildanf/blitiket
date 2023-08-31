@@ -14,8 +14,8 @@ router.post('/register', UserController.register)
 router.get('/login', UserController.loginForm)
 router.post('/login', UserController.login)
 
-router.use(routerEvent)
-router.use(routerUser)
+router.use('/user',routerUser)
+router.use('/event',routerEvent)
 
 
 

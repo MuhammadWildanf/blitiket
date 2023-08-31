@@ -1,6 +1,4 @@
 const express = require('express')
-const routerEvent = require('./routes/routerEvent')
-const routerUser = require('./routes/routerUser')
 const route = require('./routes/index')
 const app = express()
 const port = 3000
