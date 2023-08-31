@@ -10,8 +10,8 @@
         "totalTicket": 1
     },
     {
-        "UserId": 3,
-        "EventId": 1,
+        "UserId": 1,
+        "EventId": 2,
         "totalTicket": 2
     }
 ]

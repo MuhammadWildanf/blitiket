@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan</title>
+</head>
+
+<body>
+    <%- include('partials/_navbar') %>
+        <div class="container">
+
+           
+                <% booking.forEach(el=> { %>
+                    
+                    <p><b>Detail Customer</b></p>
+                    <p>Name       : <%= el.User.Profile.namaLengkap %></p>
+                    <p>Email      : <%= el.User.email %></p>
+                    <p><b>Detail Customer</b></p>
+                    <p>Nomor Telp : <%= el.User.Profile.phone %></p>
+                    <p>Event Name : <%= el.Event.name %> </p>
+                    <p>Lokasi : <%= el.Event.location %> </p>
+                    <p><b>Detail Customer</b></p>
+                    <p>Total Tiket : <%= el.Event.lokasi %> </p>
+                    <p>Total Harga : <%= el.Event.lokasi %> </p>
+                    
+        
+                    <% }) %>
+        
+
+        </div>
+
+        <%- include('partials/_bootstrap') %>
+</body>
+
+</html>

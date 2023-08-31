@@ -47,8 +47,8 @@ class Controller {
         console.log(req.session.userId);
         const { id } = req.params
         let option = {
-            where: {id}, include:{model:User}
-        }; 
+            where: { id }, include: { model: User }
+        };
         Booking.create(option)
             .then(data => {
                 res.send(data)
@@ -66,6 +66,50 @@ class Controller {
         res.send('home')
     }
 
+    static pesanan(req, res) {
+        let userId = req.session.userId
+        let option = {
+            include: [
+                {
+                    model: User,
+                    include: Profile
+                },
+                {
+                    model: Event,
+                    include: Category
+                }
+            ],
+            where: {
+                id: userId
+            }
+        };
+        Booking.findAll(option, {
+
+        })
+            .then(booking => {
+                res.render('pesanan', {booking})
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
+    static profile(req, res) {
+        let userId = req.session.userId
+        let option = {
+            include: [{ model: Profile }],
+            where: {
+                id: userId
+            }
+        };
+        User.findAll(option)
+            .then(profile => {
+                res.send(profile)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
 
     /**User Controller */
 

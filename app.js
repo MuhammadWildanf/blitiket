@@ -5,8 +5,11 @@ const routerUser = require('./routes/routerUser');
 const app = express();
 const port = 3000;
 const session = require('express-session');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
   secret: 'blitiket',

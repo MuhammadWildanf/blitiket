@@ -13,12 +13,26 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Profile.belongsTo(models.User)
     }
+
+    get namaLengkap(){
+      return this.firstName +` `+  this.lastName
+    }
   }
+
+ 
   Profile.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     phone: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    UserId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: {
+          tableName: 'Users',
+        },
+        key: 'id'
+      },
+    },
   }, {
     sequelize,
     modelName: 'Profile',
