@@ -5,8 +5,8 @@ const midleware = require('../middlewares/auth')
 
 
 // EVENT
-router.get('/add', midleware.isLogin, midleware.isUser, Controller.addEvent) // menampilkan form untuk membuat form khusus eo
-router.post('/add',midleware.isLogin, midleware.isUser, Controller.postAddEvent) // memposting form 
+router.get('/add', midleware.isLogin, midleware.isAdmin, Controller.addEvent) // menampilkan form untuk membuat form khusus eo
+router.post('/add',midleware.isLogin, midleware.isAdmin, Controller.postAddEvent) // memposting form 
 
 
 // router.get('/')

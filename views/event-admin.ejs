@@ -11,10 +11,11 @@
     <%- include('partials/_navbarAdmin') %>
         <div class="container">
             <div>
-                <a href="" class="btn btn-primary">Add Event</a>
-                <form class="d-flex" role="search" action="/reports" method="get">
+                <a href="/event/add" class="btn btn-primary">Add Event</a>
+                <form class="d-flex" role="search" action="/event" method="get">
                     <input class="form-control me-2" type="search" placeholder="Search by event..." aria-label="Search"
-                        name="event">
+                        name="name">
+                    <!-- <input class="form-control me-2" type="search" placeholder="search by Category..." aria-label="Search" name="category"> -->
                     <button class="btn btn-dark" type="submit">Search</button>
                 </form>
             </div>

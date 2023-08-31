@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+
+<body>
+    <%- include('partials/_navbar') %>
+
+        <% if (errors) { %>
+            <div class="container mt-4 d-flex justify-content-center align-items-center" >
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong>
+                    <%= errors.split(";").join(", ") %>
+                    <button type=" button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <% } %>
+
+                <div class="container mt-4 d-flex justify-content-center align-items-center">
+
+
+                    <form action="/event/add" method="post">
+
+
+
+                        <div class="row g-3">
+                            <div class="col-mb-3">
+                                <label for="name" class="form-label">Event Name</label>
+                                <input name="name" type="text" class="form-control" id="name"
+                                    placeholder="Enter Event Name" value="">
+                            </div>
+
+                            <div class="col-mb-3">
+                                <label for="location" class="form-label">Event location</label>
+                                <input name="location" type="text" class="form-control" id="location"
+                                    placeholder="Enter Event Location" value="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="eventDate">Created Date:</label>
+                                <input style="padding: 4px; display: flex; width: 400px; " type="date" name="eventDate"
+                                    value="">
+                            </div>
+
+                            <div class="col-mb-3">
+                                <label for="price" class="form-label">Event price</label>
+                                <input name="price" type="text" class="form-control" id="price"
+                                    placeholder="Enter Ticket Price" value="">
+                            </div>
+
+                            <div class="col-mb-3">
+                                <label for="capacity" class="form-label">Event capacity</label>
+                                <input name="capacity" type="text" class="form-control" id="capacity"
+                                    placeholder="Enter Venue Capacity" value="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="category" class="form-label">category</label>
+                                <select class="form-select form-select-sm" aria-label="Small select example"
+                                    name="CategoryId">
+                                    <option selected disabled hidden value="Choose Category">
+
+                                    </option>
+                                    <% category.map((el)=> { %>
+                                        <option value="<%= el.id %>">
+                                            <%= el.name %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-dark">Submit</button>
+                            </div>
+                    </form>
+                </div>
+
+
+
+                <%- include('partials/_bootstrap') %>
+</body>
+
+</html>

@@ -16,11 +16,84 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Event.init({
-    name: DataTypes.STRING,
-    location: DataTypes.STRING,
-    eventDate: DataTypes.DATE,
-    price: DataTypes.INTEGER,
-    capacity: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Name is Required"
+        },
+        notNull: {
+          args: true,
+          msg: "Name is Required"
+        }
+      },
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Location is Required"
+        },
+        notNull: {
+          args: true,
+          msg: "Location is Required"
+        }
+      },
+    },
+    eventDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Date is Required"
+        },
+        notNull: {
+          args: true,
+          msg: "Date is Required"
+        }
+      },
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Name is Required"
+        },
+        notNull: {
+          args: true,
+          msg: "Name is Required"
+        },
+        min: {
+          args: 1,
+          msg: "price must greater than 0"
+        }
+      },
+    },
+    capacity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Name is Required"
+        },
+        notNull: {
+          args: true,
+          msg: "Name is Required"
+        },
+        min: {
+          args: 1,
+          msg: "Capacity must greater than 0"
+        }
+      },
+    },
     CategoryId: {
       type: DataTypes.INTEGER,
       references: {
