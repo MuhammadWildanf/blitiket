@@ -5,6 +5,7 @@ const router = express.Router()
 const login = require('./login')
 
 
+
 router.get('/', Controller.home)
 
 router.use(login)
