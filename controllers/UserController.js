@@ -50,6 +50,16 @@ class UserController {
             })
     }
 
+    static logout(req,res){
+        req.session.destroy((err) => {
+            if(err){
+                res.send(err.message);
+            }else{
+                res.redirect('/login')
+            }
+        })
+    }
+
 }
 
 

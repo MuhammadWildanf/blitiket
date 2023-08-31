@@ -13,6 +13,8 @@ router.post('/register', UserController.register)
 //login
 router.get('/login', UserController.loginForm)
 router.post('/login', UserController.login)
+router.get('/logout', UserController.logout)
+
 
 router.get('/pesanan',midleware.isLogin, midleware.isUser, Controller.pesanan) // memposting form edit untuk event yang sudah dibuat oleh EO
 router.get('/profile',midleware.isLogin, midleware.isUser, Controller.profile) // menampilkan event yang sudah dibuat oleh EO
