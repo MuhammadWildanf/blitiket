@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(8)
 const hash = bcrypt.hashSync("wildan", salt)
 console.log(hash);

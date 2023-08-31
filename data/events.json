@@ -1,18 +1,20 @@
 [
     {
-        "name": "konserDangdut",
-        "location": "monas",
+        "name": "Festival Dangdut",
+        "location": "Taman Banteng",
         "eventDate": "2023-09-30",
         "price": 250000,
         "capacity": 2000,
-        "CategoryId": 1
+        "CategoryId": 1,
+        "img": "https://awsimages.detik.net.id/community/media/visual/2022/11/05/pentastik_43.jpeg?w=650&q=80"
     },
     {
-        "name": "standUpComedy",
-        "location": "istoraSenayan",
+        "name": "Komedi Berdiri",
+        "location": "Istora Senayan",
         "eventDate": "2023-09-15",
         "price": 300000,
         "capacity": 1000,
-        "CategoryId": 2
+        "CategoryId": 2,
+        "img": "https://static.vecteezy.com/system/resources/previews/004/646/151/non_2x/stand-up-comedy-banner-with-vintage-microphone-free-vector.jpg"
     }   
 ]
