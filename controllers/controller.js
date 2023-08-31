@@ -12,10 +12,18 @@ class Controller {
     /** event controller */
 
     static readAllEvent(req, res) {
-        Event.findAll()
+        // console.log(req.session.role, '<<<');
+        const role = req.session.role
+
+        Event.findAll({ include: Category })
             .then((event) => {
-                // res.send(event)
-                res.render('event', { event })
+                if (role === 'eventOrganizer') {
+                    // res.send(event)
+                    // console.log(event);
+                    res.render('event-admin', { event })
+                } else {
+                    res.render('event', { event })
+                }
             })
             .catch((err) => {
                 res.send(err.message)
@@ -44,7 +52,7 @@ class Controller {
     }
 
     static buyTicketForm(req, res) {
-        console.log(req.session.userId);
+        // console.log(req.session.userId);
         const { id } = req.params
         let option = {
             where: { id }, include: { model: User }
@@ -122,15 +130,60 @@ class Controller {
     }
 
     static editEvent(req, res) {
-        res.send('editEvent')
+        const { id } = req.params
+        Event.findByPk(id, { include: Category })
+            .then((event) => {
+                Category.findAll()
+                    .then(category => {
+                        // res.send({event, category})
+                        res.render('event-edit', { event, category })
+                    })
+
+            })
+            .catch((err) => {
+                res.send(err.message)
+            })
     }
 
     static postEditEvent(req, res) {
-        res.send('postEditEvent')
+        // res.send('postEditEvent')
+        let { id } = req.params
+        let foundId = +id
+        let { name, location, eventDate, price, capacity, CategoryId } = req.body
+
+        price = +price
+        capacity = +capacity
+        CategoryId = +CategoryId
+
+        Event.update({ name, location, eventDate, price, capacity, CategoryId },
+            {
+                where: { id: foundId }
+            })
+            .then(result => {
+                // res.send(result)
+                res.redirect('/event')
+            })
+            .catch(err => {
+                res.send(err.message)
+            })
     }
 
     static deleteEvent(req, res) {
-        res.send('deleteevent')
+        // res.send('deleteevent')
+        let { id } = req.params
+        let foundId = +id
+
+        Event.destroy({
+            where: {
+                id: foundId
+            }
+        })
+            .then(report => {
+                res.redirect('/event')
+            })
+            .catch(error => {
+                res.send(error.message)
+            })
     }
 
 }

@@ -15,6 +15,12 @@ const bcrypt = require('bcryptjs');
       User.hasOne(models.Profile);
       User.belongsToMany(models.Event, { through: 'Bookings' });
     }
+
+    static allUserData(id) {
+      User.findAll({
+        include: models.Profile
+      })
+    }
   }
   User.init({
     userName: DataTypes.STRING,
