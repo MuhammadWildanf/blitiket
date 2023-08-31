@@ -1,5 +1,5 @@
 const { User } = require('../models/index')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 class UserController {
 
@@ -30,7 +30,10 @@ class UserController {
                 if (user) {
                     const isValidPassword = bcrypt.compareSync(password, user.password)
                     if (isValidPassword) {
-                        return res.redirect('/')
+                        req.session.userId = user.id
+                        req.session.email = user.email
+                        req.session.role = user.role
+                        return res.redirect('/ticket')
                     } else {
                         const error = "invalid username/password"
                         return res.redirect(`/login?error=${error}`)
