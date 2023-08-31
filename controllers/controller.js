@@ -49,6 +49,16 @@ class Controller {
 
     static buyTicketForm(req,res){
         res.send('ticketForm')
+        const {id} = req.params
+
+        Event.findAll({include: User})
+            .then((event) => {
+                res.send(event)
+                // res.render('event-detail', { event })
+            })
+            .catch((err) => {
+                res.send(err.message)
+            })  
     }
 
     static postBuyTicket(req,res){

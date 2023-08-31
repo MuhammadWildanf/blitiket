@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Event.belongsToMany(models.User, { through: 'Bookings' });
+      Event.belongsTo(models.Category)
     }
   }
   Event.init({

@@ -12,6 +12,8 @@ const bcrypt = require('bcryptjs');
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.Profile);
+      User.belongsToMany(models.Event, { through: 'Bookings' });
     }
   }
   User.init({
