@@ -10,6 +10,7 @@ router.post('/add',midleware.isLogin, midleware.isAdmin, Controller.postAddEvent
 
 
 // router.get('/')
+router.get('/',midleware.isLogin, midleware.isAdmin, Controller.readAllEvent)
 router.get('/confirmation',midleware.isLogin, midleware.isAdmin, Controller.confimationPage) // checkout confirmation page
 router.get('/:id',midleware.isLogin, midleware.isAdmin, Controller.readEventById) // untuk menampilkan detail event
 router.get('/:id/buy',midleware.isLogin, midleware.isAdmin,Controller.buyTicketForm) // untuk customer masuk ke dalam form pembelian tiket

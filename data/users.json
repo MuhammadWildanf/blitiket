@@ -2,25 +2,25 @@
     {
         "userName": "user1",
         "email": "user1@gmail.com",
-        "password": "@user1_123",
+        "password": "$2a$08$JCQmIruRsu8XCAdVFKMEW.ssV2sit9aGIXoEKP9.S/eWE6SGdniZS",
         "role": "user"
     },
     {
         "userName": "user2",
         "email": "user2@gmail.com",
-        "password": "@user2_123",
+        "password": "$2a$08$SguBgwOfQ5NHmZw9YGRhCuobqk2kGLZ9RADnWRaLLJKFQmb6j4Pc6",
         "role": "user"
     },
     {
         "userName": "eventOrganizer1",
         "email": "eventorganizer1@gmail.com",
-        "password": "@EO1_123",
+        "password": "$2a$08$84yYmdyXeM7X0muaR41KZunEqrDVEeTQxMKir4/mWY1PSnrtGRgpG",
         "role": "eventOrganizer"
     },
     {
         "userName": "eventOrganizer2",
         "email": "eventorganizer1@gmail.com",
-        "password": "@EO2_123",
+        "password": "$2a$08$oXF3GgcORS1V2YuVEr8ufOIJG2/AipPviAreXS3gdyRdOQfZTn7Ma",
         "role": "eventOrganizer"
     }
 ]
