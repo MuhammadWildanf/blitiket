@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+
+<body>
+    <%- include('partials/_navbar') %>
+
+        <section class="container">
+            <div class="d-flex" style="margin-top: 50px;">
+                <div style="padding-right: 150px; width: 500px;">
+                    <% event.forEach(el=> { %>
+                        <img src="<%= el.img %>"
+                            onerror="'https://i.pinimg.com/originals/57/f6/3d/57f63d4887518cc9c73cc1f7a1154704.png'">
+                        <% }) %>
+                </div>
+            </div>
+            <br><br>
+            <div style="float: left;">
+                <form method="post" action="">
+                    <div style="padding-bottom: 15px;">
+                        Qty: <select name="quantity">
+                            <option selected value="1">1</option>
+
+                            <option></option>
+
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">buy ticket</button>
+                </form>
+            </div>
+
+            <%- include('partials/_bootstrap') %>
+</body>
+
+</html>

@@ -1,11 +1,26 @@
+const { Event, Booking, Profile, User, Category } = require('../models')
+const { Op } = require("sequelize")
+
+
 class Controller {
 
     static home(req,res){
-        res.send('home')
+      
     }
 
 
     /** event controller */
+
+    static readAllEvent(req,res){
+        Event.findAll()
+        .then((event) => {
+            // res.send(event)
+            res.render('event', { event })
+        })
+        .catch((err) => {
+            res.send(err.message)
+        })
+    }
 
     static addEvent(req,res){
         res.send('addevent')
@@ -16,7 +31,20 @@ class Controller {
     }
 
     static readEventById(req,res){
-        res.send('eventbyid')
+        // console.log(req.params);
+        const {id} = req.params
+        Event.findAll({
+            where: {
+                id: id
+            }
+        })
+            .then((event) => {
+                // res.send(event)
+                res.render('event-detail', { event })
+            })
+            .catch((err) => {
+                res.send(err.message)
+            })
     }
 
     static buyTicketForm(req,res){

@@ -7,7 +7,7 @@ router.get('/add', Controller.addEvent) // menampilkan form untuk membuat form k
 router.post('/add', Controller.postAddEvent) // memposting form 
 
 
-// router.get('/')
+router.get('/', Controller.readAllEvent)
 router.get('/confirmation', Controller.confimationPage) // checkout confirmation page
 router.get('/:id', Controller.readEventById) // untuk menampilkan detail event
 router.get('/:id/buy', Controller.buyTicketForm) // untuk customer masuk ke dalam form pembelian tiket

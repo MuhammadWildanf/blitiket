@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+
+<body>
+    <%- include('partials/_navbar') %>
+        <div class="container">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Event</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Ticket Price</th>
+                    </tr>
+                </thead>
+                <% event.forEach(el=> { %>
+                    <tbody>
+                        <tr>    
+                            <td>
+                                <%= el.name %>
+                            </td>
+                            <td>
+                                <%= el.location %>
+                            </td>
+                            <td>
+                                <%= el.eventDate %>
+                            </td>
+                            <td>
+                                <%= el.price %>
+                            </td>
+
+                            <td>
+                                <a class="btn btn-primary" href="/event/<%= el.id %>">See Details</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <% }) %>
+            </table>
+
+        </div>
+
+        <%- include('partials/_bootstrap') %>
+</body>
+
+</html>
