@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+
+<body>
+    <%- include('partials/_navbarAdmin') %>
+        <div class="container">
+            <div>
+                <a href="" class="btn btn-primary">Add Event</a>
+                <form class="d-flex" role="search" action="/reports" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Search by event..." aria-label="Search"
+                        name="event">
+                    <button class="btn btn-dark" type="submit">Search</button>
+                </form>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Event</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Ticket Price</th>
+                        <th scope="col">Venue Capacity</th>
+                        <th scope="col">Category</th>
+                    </tr>
+                </thead>
+                <% event.forEach(el=> { %>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= el.name %>
+                            </td>
+                            <td>
+                                <%= el.location %>
+                            </td>
+                            <td>
+                                <%= el.eventDate %>
+                            </td>
+                            <td>
+                                <%= el.price %>
+                            </td>
+                            <td>
+                                <%= el.capacity %>
+                            </td>
+                            <td>
+                                <%= el.Category.name %>
+                            </td>
+                            <td>
+                                <a class="btn btn-success" href="/user/eventlist/<%= el.id %>">Edit</a>
+                                <a class="btn btn-danger" href="/user/eventlist/<%= el.id %>/delete">delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <% }) %>
+            </table>
+
+        </div>
+
+        <%- include('partials/_bootstrap') %>
+</body>
+
+</html>

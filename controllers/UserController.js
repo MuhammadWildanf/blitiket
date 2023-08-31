@@ -34,7 +34,7 @@ class UserController {
                         req.session.userId = user.id
                         req.session.email = user.email
                         req.session.role = user.role
-                        return res.redirect('/')
+                        return res.redirect('/event')
                     } else {
                         const error = "invalid username/password"
                         return res.redirect(`/login?error=${error}`)

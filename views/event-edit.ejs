@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+
+<body>
+    <%- include('partials/_navbar') %>
+
+        <div class="container mt-4 d-flex justify-content-center align-items-center">
+
+
+            <form action="/user/eventlist/<%= event.id %>" method="post">
+
+                <div><img src="<%= event.img %> %>" width="400" height="400" alt="image not found"></div>
+
+
+                <div class="row g-3">
+                    <div class="col-mb-3">
+                        <label for="name" class="form-label">Event Name</label>
+                        <input name="name" type="text" class="form-control" id="name" placeholder=""
+                            value="<%= event.name %>">
+                    </div>
+
+                    <div class="col-mb-3">
+                        <label for="location" class="form-label">Event location</label>
+                        <input name="location" type="text" class="form-control" id="location" placeholder=""
+                            value="<%= event.location %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventDate">Created Date:</label>
+                        <input style="padding: 4px; display: flex; width: 400px; " type="date" name="eventDate"
+                            value="<%= event.eventDate.toISOString().slice(0, 10) %>">
+                    </div>
+
+                    <div class="col-mb-3">
+                        <label for="price" class="form-label">Event price</label>
+                        <input name="price" type="text" class="form-control" id="price" placeholder=""
+                            value="<%= event.price %>">
+                    </div>
+
+                    <div class="col-mb-3">
+                        <label for="capacity" class="form-label">Event capacity</label>
+                        <input name="capacity" type="text" class="form-control" id="capacity" placeholder=""
+                            value="<%= event.capacity %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">category</label>
+                        <select class="form-select form-select-sm" aria-label="Small select example" name="CategoryId">
+                            <option selected disabled hidden value="<%= parseInt(event.Category.id) %>">
+                                <%= event.Category.name %>
+                            </option>
+                            <% category.map((el)=> { %>
+                                <option value="<%= el.id %>">
+                                    <%= el.name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                    </div>
+            </form>
+        </div>
+
+        <%- include('partials/_bootstrap') %>
+</body>
+
+</html>

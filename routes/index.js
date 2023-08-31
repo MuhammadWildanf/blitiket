@@ -4,7 +4,7 @@ const router = express.Router()
 const midleware = require('../middlewares/auth')
 const routerEvent = require('./routerEvent')
 const routerUser = require('./routerUser')
-const UserController = require('../controllers/Usercontroller')
+const UserController = require('../controllers/UserController')
 
 router.get('/', Controller.home)
 router.get('/register', UserController.registerForm)
