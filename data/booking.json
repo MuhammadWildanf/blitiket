@@ -1,0 +1,17 @@
+[
+    {
+        "UserId": 1,
+        "EventId": 1,
+        "totalTicket": 3
+    },
+    {
+        "UserId": 2,
+        "EventId": 1,
+        "totalTicket": 1
+    },
+    {
+        "UserId": 3,
+        "EventId": 1,
+        "totalTicket": 2
+    }
+]

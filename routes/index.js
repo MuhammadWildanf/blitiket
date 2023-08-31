@@ -1,10 +1,10 @@
 const express = require('express')
 const Controller = require('../controllers/controller')
-const UserController = require('../controllers/UserController')
 const router = express.Router()
 const midleware = require('../middlewares/auth')
 const routerEvent = require('./routerEvent')
 const routerUser = require('./routerUser')
+const UserController = require('../controllers/Usercontroller')
 
 router.get('/', Controller.home)
 router.get('/register', UserController.registerForm)

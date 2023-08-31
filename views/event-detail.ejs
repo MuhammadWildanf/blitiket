@@ -13,10 +13,10 @@
         <section class="container">
             <div class="d-flex" style="margin-top: 50px;">
                 <div style="padding-right: 150px; width: 500px;">
-                    <% event.forEach(el=> { %>
-                        <img src="<%= el.img %>"
+                    
+                        <img src="<%= event.img %>"
                             onerror="'https://i.pinimg.com/originals/57/f6/3d/57f63d4887518cc9c73cc1f7a1154704.png'">
-                        <% }) %>
+                      
                 </div>
             </div>
             <br><br>
@@ -30,7 +30,7 @@
 
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">buy ticket</button>
+                    <a href="/event/<%= event.id %>/buy" class="btn btn-primary">buy ticket</a>
                 </form>
             </div>
 
