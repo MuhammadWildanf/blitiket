@@ -6,6 +6,7 @@ npx sequelize-cli model:create --name Category --attributes name:string
 npx sequelize-cli migration:generate --name add-FK-column-to-Event-table
 npx sequelize-cli model:create --name Booking --attributes UserId:integer,EventId:integer
 
+npm i 
 npx sequelize-cli db:create
 
 npx sequelize db:migrate
@@ -15,4 +16,8 @@ npx sequelize db:seed:all
 npx sequelize db:seed:undo:all
 
 
-npm i 
+
+
+npm install bcrypt
+
+npm i express-session
